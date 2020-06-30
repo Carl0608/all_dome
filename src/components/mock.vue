@@ -1,7 +1,7 @@
 <template>
   <div class="mock">
-    <!-- <button @click="getRandom"> 生成数据 </button> -->
-    <video
+    <button @click="getRandom"> 生成数据 </button>
+    <!-- <video
       controls="controls"
       width="100%"
     >
@@ -14,7 +14,7 @@
         type="video/ogg"
       >
       Your browser does not support the video tag.
-    </video>
+    </video> -->
   </div>
 </template>
 

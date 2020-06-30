@@ -36,6 +36,18 @@ const constantRouterMap = [{
         name: 'daochu',
         component: () => import('@/components/daochu')
     },
+    // //智能校验 vue_vaptcha
+    // {
+    //     path: "/vue_vaptcha",
+    //     name: 'vue_vaptcha',
+    //     component: () => import('@/components/vue_vaptcha')
+    // },
+    //导出pdf
+    {
+        path: "/daochuPDf",
+        name: 'daochuPDf',
+        component: () => import('@/components/daochuPDf')
+    },
 ]
 const router = new Router({
     routes: constantRouterMap

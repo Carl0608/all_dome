@@ -2,22 +2,22 @@ const webpack = require('webpack')
 
 module.exports = {
 
-    configureWebpack: {
+  configureWebpack: {
 
-       plugins: [
+    plugins: [
 
-          new webpack.ProvidePlugin({
+      new webpack.ProvidePlugin({
 
-            $:"jquery",
+        $: "jquery",
 
-            jQuery:"jquery",
+        jQuery: "jquery",
 
-            "windows.jQuery":"jquery"
+        "windows.jQuery": "jquery"
 
-          })
+      })
 
-        ]
+    ]
 
-    }
+  }
 
 }
