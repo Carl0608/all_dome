@@ -37,7 +37,9 @@ VueAMap.initAMapApiLoader({
   // 默认高德 sdk 版本为 1.4.4
   v: '1.4.4'
 });
-
+//打印
+import Print from 'vue-print-nb'
+Vue.use(Print);
 
 import LunarFullCalendar from "vue-lunar-full-calendar";
 Vue.use(LunarFullCalendar);
