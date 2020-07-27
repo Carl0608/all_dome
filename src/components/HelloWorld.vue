@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <el-button v-print="printObj">打印</el-button>
+    <!-- <el-button v-print="printObj">打印</el-button>
     <div class="table_class">
       <div id="print">
         <div style="page-break-after:always;">
@@ -218,7 +218,13 @@
 
     <div>
 
-    </div>
+    </div> -->
+
+    <videoPlayer
+      ref="videoPlayer"
+      :playsinline="true"
+      :options="playerOptions"
+    />
   </div>
 </template>
 <script>
@@ -226,12 +232,12 @@
 // import { VueEditor } from "vue2-editor";
 //直播
 // import "video.js/dist/video-js.css";
-// import { videoPlayer } from "vue-video-player";
-// import "videojs-flash";
+import { videoPlayer } from "vue-video-player";
+import "videojs-flash";
 import { regionDataPlus } from "element-china-area-data";
 export default {
   components: {
-    // videoPlayer
+    videoPlayer,
     // VueEditor
   },
 
@@ -241,6 +247,7 @@ export default {
       playerOptions: {
         notSupportedMessage: "此视频暂无法播放，请稍后再试",
         height: "300",
+        width:'400',
         language: "zh-CN",
         aspectRatio: "16:9",
         controlBar: {
@@ -251,18 +258,18 @@ export default {
           volumeControl: false, // 声音控制键
           playToggle: false, // 暂停和播放键
           progressControl: false, // 进度条
-          fullscreenToggle: false // 全屏按钮
+          fullscreenToggle: false, // 全屏按钮
         },
         sources: [
           {
             type: "rtmp/mp4",
             src:
-              "rtmp://rtmp01open.ys7.com/openlive/933b365272af4240aeed5ef125f0aaf6.hd"
-          }
+              "rtmp://58.200.131.2:1935/livetv/hunantv",
+          },
         ],
         techOrder: ["flash"],
         autoplay: true,
-        controls: true
+        controls: true,
       },
       center: { lng: 109.45744048529967, lat: 36.49771311230842 },
       zoom: 13,
@@ -272,8 +279,8 @@ export default {
         id: "print",
         popTitle: "good print",
         extraCss: "",
-        extraHead: '<meta http-equiv="Content-Language"content="zh-cn"/>'
-      }
+        extraHead: '<meta http-equiv="Content-Language"content="zh-cn"/>',
+      },
     };
   },
   mounted() {
@@ -301,15 +308,15 @@ export default {
         strokeWeight: 6,
         strokeOpacity: 1,
         Color: "Red",
-        fillColor: "#f03"
+        fillColor: "#f03",
       });
       map.addOverlay(circle);
     },
     getClickInfo(e) {
       this.center.lng = e.point.lng;
       this.center.lat = e.point.lat;
-    }
-  }
+    },
+  },
 };
 </script>
 
