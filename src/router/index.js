@@ -42,12 +42,23 @@ const constantRouterMap = [{
     //     name: 'vue_vaptcha',
     //     component: () => import('@/components/vue_vaptcha')
     // },
-    //导出pdf
+    //导出pdfcavs
     {
         path: "/daochuPDf",
         name: 'daochuPDf',
         component: () => import('@/components/daochuPDf')
     },
+    {
+        path: "/test",
+        name: 'test',
+        component: () => import('@/components/test')
+    },
+    {
+        path: "/cavs",
+        name: 'cavs',
+        component: () => import('@/components/cavs')
+    }
+
 ]
 const router = new Router({
     routes: constantRouterMap

@@ -232,9 +232,10 @@
 // import { VueEditor } from "vue2-editor";
 //直播
 // import "video.js/dist/video-js.css";
-import { videoPlayer } from "vue-video-player";
-import "videojs-flash";
+// import "videojs-flash";
 import { regionDataPlus } from "element-china-area-data";
+import { videoPlayer } from "vue-video-player";
+import "videojs-contrib-hls";
 export default {
   components: {
     videoPlayer,
@@ -245,32 +246,25 @@ export default {
     return {
       value: "",
       playerOptions: {
-        notSupportedMessage: "此视频暂无法播放，请稍后再试",
-        height: "300",
-        width:'400',
-        language: "zh-CN",
-        aspectRatio: "16:9",
+        // videojs and plugin options
+        height: "360",
+        sources: [
+          {
+            withCredentials: false,
+            type: "application/x-mpegURL",
+            src:
+              "https://cmgw-vpc.lechange.com:8890/LCO/4F0714EPAAC566A/0/0/20200818T071534/dev_4F0714EPAAC566A_20200818T071534.m3u8?proto=https",
+          },
+        ],
         controlBar: {
           timeDivider: false,
           durationDisplay: false,
-          remainingTimeDisplay: false,
-          currentTimeDisplay: false, // 当前时间
-          volumeControl: false, // 声音控制键
-          playToggle: false, // 暂停和播放键
-          progressControl: false, // 进度条
-          fullscreenToggle: false, // 全屏按钮
         },
-        sources: [
-          {
-            type: "rtmp/mp4",
-            src:
-              "rtmp://58.200.131.2:1935/livetv/hunantv",
-          },
-        ],
-        techOrder: ["flash"],
-        autoplay: true,
-        controls: true,
+        flash: { hls: { withCredentials: false } },
+        html5: { hls: { withCredentials: false } },
+        poster: "path-to/static/images/surmon-5.jpg",
       },
+
       center: { lng: 109.45744048529967, lat: 36.49771311230842 },
       zoom: 13,
       options: regionDataPlus,

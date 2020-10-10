@@ -24,6 +24,7 @@
     "mockjs": "^1.1.0",
     "moment": "^2.26.0",
     "node-xlsx": "^0.15.0",
+    "videojs-contrib-hls": "^5.15.0",
     "videojs-flash": "^2.2.1",
     "vue": "^2.6.11",
     "vue-amap": "^0.5.10",

@@ -8,6 +8,10 @@ import 'vue-video-player/src/custom-theme.css' // 引入样式
 import 'videojs-flash'
 Vue.use(VueVideoPlayer)
 
+//兼容m3u8
+// const hls = require('videojs-contrib-hls')
+// Vue.use(hls)
+
 //百度地图
 import BaiduMap from 'vue-baidu-map'
 Vue.use(BaiduMap, {
