@@ -20,6 +20,15 @@ module.exports = {
 
   },
   devServer: {
+    proxy: {
+      '/svga': {
+        target: 'http://aifire.oss-cn-hangzhou.aliyuncs.com/data',
+        changeOrigin: true,
+        pathRewrite: {
+          '/svga': '/svga'
+        }
+      }
+    },
     overlay: {
       warnings: false,
       errors: false

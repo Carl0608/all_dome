@@ -225,6 +225,13 @@
       :playsinline="true"
       :options="playerOptions"
     />
+    <el-cascader
+      size="large"
+      :options="options"
+      v-model="selectedOptions"
+      @change="addressChange"
+    >
+    </el-cascader>
   </div>
 </template>
 <script>
@@ -233,7 +240,9 @@
 //直播
 // import "video.js/dist/video-js.css";
 // import "videojs-flash";
-import { regionDataPlus } from "element-china-area-data";
+
+import { provinceAndCityData } from "element-china-area-data";
+// import { regionDataPlus } from "element-china-area-data";
 import { videoPlayer } from "vue-video-player";
 import "videojs-contrib-hls";
 export default {
@@ -245,6 +254,8 @@ export default {
   data() {
     return {
       value: "",
+      options: provinceAndCityData,
+      selectedOptions: [],
       playerOptions: {
         // videojs and plugin options
         height: "360",
@@ -267,8 +278,6 @@ export default {
 
       center: { lng: 109.45744048529967, lat: 36.49771311230842 },
       zoom: 13,
-      options: regionDataPlus,
-      selectedOptions: [],
       printObj: {
         id: "print",
         popTitle: "good print",
@@ -286,6 +295,7 @@ export default {
     //   player = new EZUIKit.EZUIPlayer("myPlayer");
     // }, 2);
     // player.play();
+    console.log(provinceAndCityData);
   },
   methods: {
     handleChange(val) {
